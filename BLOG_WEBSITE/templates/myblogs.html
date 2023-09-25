@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}My Blogs{% endblock  %}
+{% comment %} {% block profile %}
+<div class="container-fluid" style="background-color: rgb(87, 149, 203);">
+  <div class="container row">
+      <div class="col-sm-3">
+          <center>
+
+              <img src={{author.image.url}} alt={% static 'no_profile.webp' %} height="150px" style="border-radius: 1000px;">
+          </center>
+          <div class="container" style="color: white;font-weight: bold;text-align: center;">
+              {{author.name}}
+          </div>
+      </div>
+      
+
+  </div>
+</div>
+
+{% endblock profile %} {% endcomment %}
+
+
+{% block content %}
+
+{% for post  in posts %}
+
+<div class="container mt-5 p-4 " style='border-radius: 5px;font-family: Arial;background-color:white;'>
+  <h2>{{post.title}}</h2>
+  <h5>{{post.created_at}}</h5>
+  <h5>Author: {{post.author.name}}</h5>
+  <p>{{post.body}}</p>  
+  
+</div>
+{% endfor %}
+{% endblock content %}

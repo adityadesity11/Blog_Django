@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if request.user.is_authenticated %}
+
+
+{% endif %}
+
+{% for post  in posts reversed %}
+<div class="container mt-5 p-4 " style='border-radius: 5px;font-family: Arial;background-color:white;'>
+    <a style="text-decoration: none; color: black;" href="/posts/{{post.id}}">
+      <h2>{{post.title}}</h2>
+      <h5>{{post.created_at}}</h5>
+      <h5>Author: {{post.author.name}}</h5>
+      <p>{{post.body|truncatewords:20}}</p>
+      
+    </a>
+  </div>
+
+
+{% endfor %}
+
+
+{% endblock content %}
